@@ -5,9 +5,10 @@ class Store < ActiveRecord::Base
   validate :check
   
   def check
-    if !(mens.mens_apparel && womens_apparel)
-      puts errors.add (:base, "This is not a store")
+    if !mens_apparel && !womens_apparel
+     errors.add(:base, "This is not a store")
     end
+  end
 end
 
 
